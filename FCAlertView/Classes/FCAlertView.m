@@ -495,7 +495,7 @@
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                          alertViewFrame.size.height - 47,
                                                                          alertViewFrame.size.width,
-                                                                         2)];
+                                                                         1)];
     
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
     if (_darkTheme)
