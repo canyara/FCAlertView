@@ -74,13 +74,6 @@
         _subtitleFont = nil;
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
-        
-        if (@available(iOS 12.0, *)) {
-            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ) {
-                _darkTheme = YES;
-            }
-        }
-        
     }
     
     return self;
@@ -504,6 +497,9 @@
                                                                          1)];
     
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+    if (self.separatorLineColorScheme) {
+        separatorLineView.backgroundColor = self.separatorLineColorScheme;
+    }
     if (_darkTheme)
         separatorLineView.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
     

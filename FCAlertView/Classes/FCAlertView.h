@@ -180,6 +180,7 @@ typedef void (^FCTextReturnBlock)(NSString *text);
 // Color Schemes
 
 @property (nonatomic, retain) UIColor * colorScheme;
+@property (nonatomic, retain) UIColor * separatorLineColorScheme;
 @property (nonatomic, retain)  UIColor * titleColor;
 @property (nonatomic, retain)  UIColor * subTitleColor;
 @property (nonatomic, retain) UIColor *alertBackgroundColor;

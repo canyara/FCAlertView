@@ -498,6 +498,9 @@
                                                                          1)];
     
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+    if (self.separatorLineColorScheme) {
+        separatorLineView.backgroundColor = self.separatorLineColorScheme;
+    }
     if (_darkTheme)
         separatorLineView.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
     
