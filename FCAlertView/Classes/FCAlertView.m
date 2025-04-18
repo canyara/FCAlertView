@@ -74,7 +74,6 @@
         _subtitleFont = nil;
         defaultSpacing = [self configureAVWidth];
         defaultHeight = [self configureAVHeight];
-        
     }
     
     return self;
@@ -700,23 +699,15 @@
         
         UIView *horizontalSeparator = [[UIView alloc] initWithFrame:CGRectMake(alertViewFrame.size.width/2 - 1,
                                                                                otherButton.frame.origin.y - 2,
-                                                                               2,
+                                                                               1,
                                                                                47)];
         
         horizontalSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+        if (self.separatorLineColorScheme) {
+            horizontalSeparator.backgroundColor = self.separatorLineColorScheme;
+        }
         if (_darkTheme)
             horizontalSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
-        
-        UIVisualEffect *blurEffect;
-        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        if (_darkTheme)
-            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        
-        UIVisualEffectView *visualEffectView3;
-        visualEffectView3 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        visualEffectView3.frame = horizontalSeparator.bounds;
-        visualEffectView3.userInteractionEnabled = NO;
-        [horizontalSeparator addSubview:visualEffectView3];
         
         if (!_hideAllButtons && !_hideDoneButton && !_detachButtons && !_hideSeparatorLineView) {
             [alertView addSubview:horizontalSeparator];
@@ -871,40 +862,29 @@
         UIView *firstSeparator = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                           firstButton.frame.origin.y - 2,
                                                                           alertViewFrame.size.width,
-                                                                          2)];
+                                                                          1)];
         firstSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+        if (self.separatorLineColorScheme) {
+            firstSeparator.backgroundColor = self.separatorLineColorScheme;
+        }
         if (_darkTheme)
             firstSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
         
         UIView *secondSeparator = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                            secondButton.frame.origin.y - 2,
                                                                            alertViewFrame.size.width,
-                                                                           2)];
+                                                                           1)];
         if (_hideDoneButton)
             secondSeparator.frame = CGRectMake(alertViewFrame.size.width/2 - 1,
                                                secondButton.frame.origin.y,
-                                               2,
+                                               1,
                                                45);
         secondSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+        if (self.separatorLineColorScheme) {
+            secondSeparator.backgroundColor = self.separatorLineColorScheme;
+        }
         if (_darkTheme)
             secondSeparator.backgroundColor = [UIColor colorWithWhite:58.0f/255.0f alpha:1.0];
-        
-        UIVisualEffect *blurEffect;
-        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        if (_darkTheme)
-            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        
-        UIVisualEffectView *visualEffectView;
-        visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        visualEffectView.frame = firstSeparator.bounds;
-        visualEffectView.userInteractionEnabled = NO;
-        [firstSeparator addSubview:visualEffectView];
-        
-        UIVisualEffectView *visualEffectView2;
-        visualEffectView2 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        visualEffectView2.frame = secondSeparator.bounds;
-        visualEffectView2.userInteractionEnabled = NO;
-        [secondSeparator addSubview:visualEffectView2];
         
         if (!_hideAllButtons && !_detachButtons && !_hideSeparatorLineView) {
             [alertView addSubview:firstSeparator];
@@ -912,17 +892,7 @@
         }
         
     }
-    
-    UIVisualEffect *blurEffect;
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-    if (_darkTheme)
-        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *visualEffectView;
-    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    visualEffectView.frame = separatorLineView.bounds;
-    visualEffectView.userInteractionEnabled = NO;
-    [separatorLineView addSubview:visualEffectView];
-    
+        
     if (!_fullCircleCustomImage) {
         circleLayer = [CAShapeLayer layer];
         [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
